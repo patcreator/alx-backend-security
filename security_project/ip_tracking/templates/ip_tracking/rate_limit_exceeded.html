@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rate Limit Exceeded</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 50px; }
+        .error { color: red; font-size: 48px; }
+        .message { margin: 20px; }
+    </style>
+</head>
+<body>
+    <div class="error">429</div>
+    <h1>Rate Limit Exceeded</h1>
+    <div class="message">
+        You have made too many requests. Please wait a minute before trying again.
+    </div>
+    <p><a href="{% url 'home' %}">Return to Home</a></p>
+</body>
+</html>

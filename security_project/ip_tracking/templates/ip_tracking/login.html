@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        .error { color: red; }
+        .form-group { margin: 10px 0; }
+        input { padding: 5px; width: 200px; }
+        button { padding: 5px 15px; }
+    </style>
+</head>
+<body>
+    <h2>Login</h2>
+    
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+    
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Username:</label><br>
+            <input type="text" name="username" required>
+        </div>
+        <div class="form-group">
+            <label>Password:</label><br>
+            <input type="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+    
+    <p><small>Rate limit: 5 attempts per minute</small></p>
+</body>
+</html>

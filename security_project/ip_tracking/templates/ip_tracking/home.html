@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        .nav { margin: 20px 0; }
+        .nav a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h2>IP Tracking System</h2>
+    <div class="nav">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'login' %}">Login</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% endif %}
+    </div>
+    
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}!</p>
+    {% else %}
+        <p>Please log in to access the dashboard.</p>
+    {% endif %}
+</body>
+</html>
